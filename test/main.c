@@ -3,7 +3,13 @@
 
 int main(void)
 {
-	_printf("Hello %c world, 10%%\n", 'A');
-	printf("Hello %c world, 10%%\n", 'A');
+	int n = 0;
+
+	n = _printf("%%\n");
+	printf("%d\n", n);
+	
+	n = printf("%%\n");
+	printf("%d\n", n);
+	
 	return (0);
 }
