@@ -3,13 +3,8 @@
 
 int main(void)
 {
-	int n = 0;
-
-	n = _printf("%%\n");
-	printf("%d\n", n);
-	
-	n = printf("%%\n");
-	printf("%d\n", n);
+	_printf("Name:%s, Initial:%c, score:100%%\n", "John", 'J');
+	printf("Name:%s, Initial:%c, score:100%%\n", "John", 'J');
 	
 	return (0);
 }
