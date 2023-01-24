@@ -1,13 +1,15 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
  * _print_str - prints a string
  * @s: string
  * Return: Always 0
  */
-int _print_str(char *s)
+int _print_str(va_list list)
 {
 	int n;
+	char *s = va_arg(list, char *);
 
 	for (n = 0; s[n] != '\0'; n++)
 	{
@@ -21,27 +23,36 @@ int _print_str(char *s)
  * @c: charcter
  * Return: ..
  */
-int _pchar(char c)
+int _pchar(va_list list)
 {
-	return (_putchar(c));
+	return (_putchar(va_arg(list, int)));
 }
 
 /**
  * Dtobinary - Coverts decimal to binary
  * @num: number to convert
  */
-void Dtobinary(int num)
+int Dtobinary(va_list list)
 {
-	int i;
-	
+	unsigned int num;
+	int a = 0, b;
+	int arr[100];
+
+	num = va_arg(list, int);
 	if (num == 0)
 	{
 		_putchar('0');
-		return;
+		return (1);
 	}
-
-	for (i = 31; i >= 0; i--)
+	while (num > 0)
 	{
-		_putchar('0' + ((num >> i) & 1));
+		arr[a] = num % 2;
+		num /= 2;
+		a++;
 	}
+	for (b = a - 1; b >= 0; b--)
+	{
+		_putchar(arr[b] + '0');
+	}
+	return (a);
 }

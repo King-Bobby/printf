@@ -1,11 +1,12 @@
 #ifndef _MAIN_H
 #define _MAIN_H
+#include <stdarg.h>
 
 int _putchar(char c);
 int _printf(const char *format, ...);
-int _pchar(char c);
-int _print_str(char *s);
+int _pchar(va_list list);
+int _print_str(va_list list);
 int _print_int(int n);
-void Dtobinary(int num);
+int Dtobinary(va_list list);
 
 #endif

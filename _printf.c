@@ -12,7 +12,6 @@ int _printf(const char *format, ...)
 {
 	va_list list;
 	int index, n_displayed = 0;
-	char *str = NULL;
 
 	if (format == NULL)
 		return (-1);
@@ -29,15 +28,14 @@ int _printf(const char *format, ...)
 		{
 			if (format[index + 1] == 'c')
 			{
-				_pchar(va_arg(list, int));
+				_pchar(list);
 				index++;
 				n_displayed++;
 			}
 			if (format[index + 1] == 's')
 			{
 				index++;
-				str = va_arg(list, char *);
-				_print_str(str);
+				_print_str(list);
 			}
 			if (format[index + 1] == '%')
 			{
@@ -47,7 +45,7 @@ int _printf(const char *format, ...)
 			if (format[index + 1] == 'b')
 			{
 				index++;
-				Dtobinary(va_arg(list, int));
+				Dtobinary(list);
 			}
 		}
 	}
