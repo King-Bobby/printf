@@ -14,6 +14,9 @@ int _printf(const char *format, ...)
 	int index, n_displayed = 0;
 	char *str = NULL;
 
+	if (format == NULL)
+		return (-1);
+	
 	va_start(list, format);
 	for (index = 0; format[index] != '\0'; index++)
 	{
