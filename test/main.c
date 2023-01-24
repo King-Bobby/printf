@@ -3,8 +3,7 @@
 
 int main(void)
 {
-	_printf("Name:%s, Initial:%c, score:100%%\n", "John", 'J');
-	printf("Name:%s, Initial:%c, score:100%%\n", "John", 'J');
-	
+	_printf("%b\n", 98);
+		
 	return (0);
 }

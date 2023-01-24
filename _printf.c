@@ -25,27 +25,29 @@ int _printf(const char *format, ...)
 			_putchar(format[index]);
 			n_displayed++;
 		}
-		else
+		else 
 		{
 			if (format[index + 1] == 'c')
 			{
-				_putchar(va_arg(list, int));
-				n_displayed++;
+				_pchar(va_arg(list, int));
 				index++;
-			}
-			else if (format[index + 1] == '%')
-			{
-				index++;
-				_putchar('%');
 				n_displayed++;
-
 			}
-			else if (format[index + 1] == 's')
+			if (format[index + 1] == 's')
 			{
 				index++;
 				str = va_arg(list, char *);
 				_print_str(str);
-				n_displayed++;
+			}
+			if (format[index + 1] == '%')
+			{
+				index++;
+				_putchar('%');
+			}
+			if (format[index + 1] == 'b')
+			{
+				index++;
+				Dtobinary(va_arg(list, int));
 			}
 		}
 	}
