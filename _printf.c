@@ -1,7 +1,4 @@
 #include "main.h"
-#include <stdarg.h>
-#include <stddef.h>
-#include <stdlib.h>
 
 /**
  * _printf - prints like printf
@@ -13,9 +10,6 @@ int _printf(const char *format, ...)
 	va_list list;
 	int index, n_displayed = 0;
 
-	if (format == NULL)
-		return (-1);
-	
 	va_start(list, format);
 	for (index = 0; format[index] != '\0'; index++)
 	{
@@ -24,7 +18,7 @@ int _printf(const char *format, ...)
 			_putchar(format[index]);
 			n_displayed++;
 		}
-		else 
+		else
 		{
 			if (format[index + 1] == 'c')
 			{
@@ -35,17 +29,18 @@ int _printf(const char *format, ...)
 			if (format[index + 1] == 's')
 			{
 				index++;
-				_print_str(list);
+				n_displayed += _print_str(list);
 			}
 			if (format[index + 1] == '%')
 			{
 				index++;
 				_putchar('%');
+				n_displayed++;
 			}
 			if (format[index + 1] == 'b')
 			{
 				index++;
-				Dtobinary(list);
+				n_displayed += Dtobinary(list);
 			}
 		}
 	}

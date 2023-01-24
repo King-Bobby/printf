@@ -3,7 +3,7 @@
 
 /**
  * _print_str - prints a string
- * @s: string
+ * @list: va_list
  * Return: Always 0
  */
 int _print_str(va_list list)
@@ -20,7 +20,7 @@ int _print_str(va_list list)
 
 /**
  * _pchar - prints a character
- * @c: charcter
+ * @list: va_list
  * Return: ..
  */
 int _pchar(va_list list)
@@ -30,7 +30,8 @@ int _pchar(va_list list)
 
 /**
  * Dtobinary - Coverts decimal to binary
- * @num: number to convert
+ * @list: va_list
+ * Return: ..
  */
 int Dtobinary(va_list list)
 {
