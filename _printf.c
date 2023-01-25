@@ -26,7 +26,7 @@ int _printf(const char *format, ...)
 				index++;
 				n_displayed++;
 			}
-			if (format[index + 1] == 's')
+			if (format[index + 1] == 's' || format[index + 1] == 'S')
 			{
 				index++;
 				n_displayed += _print_str(list);
