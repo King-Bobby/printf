@@ -42,6 +42,10 @@ int _printf(const char *format, ...)
 				index++;
 				n_displayed += Dtobinary(list);
 			}
+			if (format[index + 1] == 'r')
+			{
+				_putchar('%');
+			}
 		}
 	}
 	va_end(list);

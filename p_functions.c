@@ -29,6 +29,23 @@ int _pchar(va_list list)
 }
 
 /**
+ * print_int - prints an integer
+ * @list: va_list
+ * Return: Always 0
+ */
+int print_int(va_list list)
+{
+	int n;
+	int *digit = va_arg(list, int *);
+
+	for (n = 0; digit[n] != '\0'; n++)
+	{
+		_putchar(digit[n]);
+	}
+	return (0);
+}
+
+/**
  * Dtobinary - Coverts decimal to binary
  * @list: va_list
  * Return: ..

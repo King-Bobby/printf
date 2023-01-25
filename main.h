@@ -8,7 +8,7 @@ int _putchar(char c);
 int _printf(const char *format, ...);
 int _pchar(va_list list);
 int _print_str(va_list list);
-int _print_int(int n);
+int print_int(va_list list);
 int Dtobinary(va_list list);
 
 #endif
