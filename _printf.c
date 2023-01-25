@@ -45,7 +45,7 @@ int _printf(const char *format, ...)
 			if (format[index + 1] == 'r')
 			{
 				index++;
-				n_displayed += print_rev(list);
+				n_displayed = print_rev(list);
 			}
 			if (format[index + 1] == 'o')
 			{

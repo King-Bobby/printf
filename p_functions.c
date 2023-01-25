@@ -56,7 +56,7 @@ int print_oct(va_list list)
  */
 int print_rev(va_list list)
 {
-	int len = 0;
+	int len = 0, ln;
 	char *str = va_arg(list, char *);
 
 	while (*str != '\0')
@@ -65,12 +65,13 @@ int print_rev(va_list list)
 		++str;
 	}
 	str--;
+	ln = len;
 	for (; len > 0; len--)
 	{
 		_putchar(*str);
 		str--;
 	}
-	return (0);
+	return (ln);
 }
 
 /**
