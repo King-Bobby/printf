@@ -44,8 +44,8 @@ int _printf(const char *format, ...)
 			}
 			if (format[index + 1] == 'r')
 			{
-				_putchar('%');
-				n_displayed++;
+				index++;
+				n_displayed += print_rev(list);
 			}
 			if (format[index + 1] == 'o')
 			{

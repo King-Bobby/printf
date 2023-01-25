@@ -50,6 +50,30 @@ int print_oct(va_list list)
 }
 
 /**
+ * print_rev - prints a string in reverse
+ * @list: va_list
+ * Return: Always 0
+ */
+int print_rev(va_list list)
+{
+	int len = 0;
+	char *str = va_arg(list, char *);
+
+	while (*str != '\0')
+	{
+		len++;
+		++str;
+	}
+	str--;
+	for (; len > 0; len--)
+	{
+		_putchar(*str);
+		str--;
+	}
+	return (0);
+}
+
+/**
  * Dtobinary - Coverts decimal to binary
  * @list: va_list
  * Return: ..
