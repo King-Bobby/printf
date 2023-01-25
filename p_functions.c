@@ -29,20 +29,24 @@ int _pchar(va_list list)
 }
 
 /**
- * print_int - prints an integer
+ * print_oct - prints in octal
  * @list: va_list
  * Return: Always 0
  */
-int print_int(va_list list)
+int print_oct(va_list list)
 {
-	int n;
-	int *digit = va_arg(list, int *);
+	int a, b, arr[100];
+	unsigned int octal;
 
-	for (n = 0; digit[n] != '\0'; n++)
+	octal = va_arg(list, unsigned int);
+	for (a = 0; octal != 0; a++)
 	{
-		_putchar(digit[n]);
+		arr[a] = octal % 8;
+		octal /= 8;
 	}
-	return (0);
+	for (b = a - 1; b >= 0; b--)
+		_putchar(arr[b] + '0');
+	return (a);
 }
 
 /**
