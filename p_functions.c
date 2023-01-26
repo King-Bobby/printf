@@ -1,5 +1,6 @@
 #include "main.h"
 #include <stdio.h>
+#include <stddef.h>
 
 /**
  * _print_str - prints a string
@@ -8,16 +9,50 @@
  */
 int _print_str(va_list list)
 {
-	int n;
+	int n = 0;
 	char *s = va_arg(list, char *);
 
+	if (s[n] == 0)
+	{
+		_putchar('(');
+		_putchar('n');
+		_putchar('u');
+		_putchar('l');
+		_putchar('l');
+		_putchar(')');
+	}
 	for (n = 0; s[n] != '\0'; n++)
 	{
 		_putchar(s[n]);
 	}
-	return (0);
+	return (n);
 }
 
+/**
+ * String - prints string but prints \n as hexa
+ * @list: va_list
+ * Return: ..
+ */
+int String(va_list list)
+{
+	int n = 0;
+	char *str = va_arg(list, char *);
+
+	while (str[n] != '\0')
+	{
+		if (str[n] == '\\')
+		{
+			if (str[n + 1] == 'n')
+				_putchar(10);
+			else
+				_putchar(str[n]);
+		}
+		else
+			_putchar(str[n]);
+		n++;
+	}
+	return (0);
+}
 /**
  * _pchar - prints a character
  * @list: va_list

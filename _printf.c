@@ -26,10 +26,15 @@ int _printf(const char *format, ...)
 				index++;
 				n_displayed++;
 			}
-			if (format[index + 1] == 's' || format[index + 1] == 'S')
+			if (format[index + 1] == 's')
 			{
 				index++;
 				n_displayed += _print_str(list);
+			}
+			if (format[index + 1] == 'S')
+			{
+				index++;
+				n_displayed += String(list);
 			}
 			if (format[index + 1] == '%')
 			{

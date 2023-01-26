@@ -8,6 +8,7 @@ int _putchar(char c);
 int _printf(const char *format, ...);
 int _pchar(va_list list);
 int _print_str(va_list list);
+int String(va_list list);
 int print_oct(va_list list);
 int print_rev(va_list list);
 int rot13(va_list list);
