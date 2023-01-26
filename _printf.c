@@ -52,6 +52,11 @@ int _printf(const char *format, ...)
 				index++;
 				n_displayed += print_oct(list);
 			}
+			if (format[index + 1] == 'R')
+			{
+				index++;
+				n_displayed += rot13(list);
+			}
 		}
 	}
 	va_end(list);

@@ -75,6 +75,31 @@ int print_rev(va_list list)
 }
 
 /**
+ * rot13 - encodes string using rot13
+ * list: va_list
+ * Return: string
+ */
+int rot13(va_list list)
+{
+	int i, j, c = 0;
+	char alpha[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	char rot13[] = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
+	char *str = va_arg(list, char *);
+
+	for (i = 0; str[i] != '\0'; i++)
+	{
+		for (j = 0; alpha[j] != '\0'; j++)
+		{
+			if (str[i] == alpha[j])
+			{
+				c += _putchar(rot13[j]);
+				break;
+			}
+		}
+	}
+	return (c);
+}
+/**
  * Dtobinary - Coverts decimal to binary
  * @list: va_list
  * Return: ..

@@ -4,8 +4,9 @@
 
 int main(void)
 {
-	int len1, len2;
-	unsigned int ui = (unsigned int)INT_MAX + 1024;
+	
+	 int len1, len2;
+	 /** unsigned int ui = (unsigned int)INT_MAX + 1024;
 
 	_printf("Character:[%c]\n", 'H');
 	printf("Character:[%c]\n", 'H');
@@ -15,12 +16,18 @@ int main(void)
 	printf("Percent: [%%]\n");
 	_printf("Unsigned octal:[%o]\n", ui);
 	printf("Unsigned octal:[%o]\n", ui);
-	len1 = _printf("%r", "\nThis sentence is retrieved from va_args!");
+	_printf("%r", "\nThis sentence is retrieved from va_args!");
+	len1 = _printf("Complete the sentence: You %r nothing, Jon Snow.\n", "know");
 	printf("%d\n", len1);
-	len2 = printf("!sgra_av morf deveirter si ecnetnes sihT\n");
+	len2 = printf("Complete the sentence: You wonk nothing, Jon Snow.\n");
+	printf("%d\n", len2);*/
+	
+	len1 = _printf("%R", "Guvf fragrapr vf ergevrirq sebz in_netf!\n");
+	printf("%d\n", len1);
+	len2 = printf("This sentence is retrieved from va_args!\n");
 	printf("%d\n", len2);
-	_printf("Complete the sentence: You %r nothing, Jon Snow.\n", "know");
-	_printf("Complete the sentence: You %r nothing, Jon Snow.\n", "");
+	_printf("Complete the sentence: You %R nothing, Jon Snow.\n", "xabj");
+	_printf("Complete the sentence: You %R nothing, Jon Snow.\n", "");
 
 	return (0);
 }
