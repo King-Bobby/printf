@@ -81,23 +81,28 @@ int print_rev(va_list list)
  */
 int rot13(va_list list)
 {
-	int i, j, c = 0;
+	int i, j, num = 0;
 	char alpha[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	char rot13[] = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
 	char *str = va_arg(list, char *);
 
 	for (i = 0; str[i] != '\0'; i++)
 	{
-		for (j = 0; alpha[j] != '\0'; j++)
+		if ((str[i] >= 'a' && str[i] <= 'z') || (str[i] >= 'A' && str[i] <= 'Z'))
 		{
-			if (str[i] == alpha[j])
+			for (j = 0; alpha[j] != '\0'; j++)
 			{
-				c += _putchar(rot13[j]);
-				break;
+				if (str[i] == alpha[j])
+				{
+					num += _putchar(rot13[j]);
+					break;
+				}
 			}
 		}
+		else
+			num += _putchar(str[i]);
 	}
-	return (c);
+	return (num);
 }
 /**
  * Dtobinary - Coverts decimal to binary

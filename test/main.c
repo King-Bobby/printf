@@ -26,8 +26,14 @@ int main(void)
 	printf("%d\n", len1);
 	len2 = printf("This sentence is retrieved from va_args!\n");
 	printf("%d\n", len2);
-	_printf("Complete the sentence: You %R nothing, Jon Snow.\n", "xabj");
-	_printf("Complete the sentence: You %R nothing, Jon Snow.\n", "");
+	len1 = _printf("Complete the sentence: You %R nothing, Jon Snow.\n", "xabj");
+	printf("%d\n", len1);
+	len2 = printf("Complete the sentence: You know nothing, Jon Snow.\n");
+	printf("%d\n", len2);
+	len1 = _printf("Complete the sentence: You %R nothing, Jon Snow.\n", "");
+	printf("%d\n", len1);
+	len2 = printf("Complete the sentence: You  nothing, Jon Snow.\n");
+	printf("%d\n", len2);
 
 	return (0);
 }
