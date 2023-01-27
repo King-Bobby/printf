@@ -42,6 +42,11 @@ int _printf(const char *format, ...)
 				_putchar('%');
 				n_displayed++;
 			}
+			if ((format[index + 1] == 'd') || format[index + 1] == 'i')
+			{
+				index++;
+				n_displayed += print_digit(list);
+			}
 			if (format[index + 1] == 'b')
 			{
 				index++;
@@ -50,7 +55,7 @@ int _printf(const char *format, ...)
 			if (format[index + 1] == 'r')
 			{
 				index++;
-				n_displayed = print_rev(list);
+				n_displayed += print_rev(list);
 			}
 			if (format[index + 1] == 'o')
 			{

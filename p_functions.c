@@ -1,6 +1,7 @@
 #include "main.h"
 #include <stdio.h>
 #include <stddef.h>
+#include <string.h>
 
 /**
  * _print_str - prints a string
@@ -9,18 +10,9 @@
  */
 int _print_str(va_list list)
 {
-	int n = 0;
+	int n;
 	char *s = va_arg(list, char *);
 
-	if (s[n] == 0)
-	{
-		_putchar('(');
-		_putchar('n');
-		_putchar('u');
-		_putchar('l');
-		_putchar('l');
-		_putchar(')');
-	}
 	for (n = 0; s[n] != '\0'; n++)
 	{
 		_putchar(s[n]);
@@ -84,6 +76,26 @@ int print_oct(va_list list)
 	return (a);
 }
 
+/**
+ * print_digit - prints digits
+ * @list: va_list
+ * Return: Number length
+ */
+int print_digit(va_list list)
+{
+	int a, b, arr[100];
+	signed int dec;
+
+	dec = va_arg(list, signed int);
+	for (a = 0; dec != '\0'; a++)
+	{
+		arr[a] = dec % 10;
+		dec /= 10;
+	}
+	for (b = a - 1; b >= 0; b--)
+		_putchar(arr[b] + '0');
+	return (a);
+}
 /**
  * print_rev - prints a string in reverse
  * @list: va_list
