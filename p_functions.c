@@ -85,16 +85,26 @@ int print_digit(va_list list)
 {
 	int a, b, arr[100];
 	signed int dec;
+	int count = 0;
 
 	dec = va_arg(list, signed int);
+	if (dec == 0)
+		return (_putchar('0'));
+	if (dec < 0)
+	{
+		dec = dec * -1;
+		_putchar('-');
+		count = count + 1;
+	}
 	for (a = 0; dec != '\0'; a++)
 	{
 		arr[a] = dec % 10;
 		dec /= 10;
+		count++;
 	}
 	for (b = a - 1; b >= 0; b--)
 		_putchar(arr[b] + '0');
-	return (a);
+	return (count);
 }
 /**
  * print_rev - prints a string in reverse
