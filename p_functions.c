@@ -66,6 +66,8 @@ int print_oct(va_list list)
 	unsigned int octal;
 
 	octal = va_arg(list, unsigned int);
+	if (octal == 0)
+		return (_putchar('0'));
 	for (a = 0; octal != 0; a++)
 	{
 		arr[a] = octal % 8;
@@ -83,9 +85,8 @@ int print_oct(va_list list)
  */
 int print_digit(va_list list)
 {
-	int a, b, arr[100];
+	int a, b, arr[100], count = 0;
 	signed int dec;
-	int count = 0;
 
 	dec = va_arg(list, signed int);
 	if (dec == 0)
@@ -106,6 +107,30 @@ int print_digit(va_list list)
 		_putchar(arr[b] + '0');
 	return (count);
 }
+
+/**
+ * _unsigned - prints values in unsigned int
+ * @list: va_list
+ * Return: length
+ */
+int _unsigned(va_list list)
+{
+	int a, b, arr[100];
+	unsigned int unsgn;
+
+	unsgn = va_arg(list, unsigned int);
+	if (unsgn == 0)
+		return (_putchar('0'));
+	for (a = 0; unsgn != '\0'; a++)
+	{
+		arr[a] = unsgn % 10;
+		unsgn /= 10;
+	}
+	for (b = a - 1; b >= 0; b--)
+		_putchar(arr[b] + '0');
+	return (a);
+}
+
 /**
  * print_rev - prints a string in reverse
  * @list: va_list

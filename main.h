@@ -9,6 +9,7 @@ int _printf(const char *format, ...);
 int _pchar(va_list list);
 int _print_str(va_list list);
 int print_digit(va_list list);
+int _unsigned(va_list list);
 int String(va_list list);
 int print_oct(va_list list);
 int print_rev(va_list list);

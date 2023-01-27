@@ -67,6 +67,11 @@ int _printf(const char *format, ...)
 				index++;
 				n_displayed += rot13(list);
 			}
+			if (format[index + 1] == 'u')
+			{
+				index++;
+				n_displayed += _unsigned(list);
+			}
 		}
 	}
 	va_end(list);

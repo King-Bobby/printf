@@ -4,11 +4,13 @@
 
 int main(void)
 {
-	signed int len1, len2;
+	unsigned int len1, len2;
+	long res = INT_MAX;
 	
-	len1 = _printf("%d\n", -1024);
+	res *= 2;
+	len1 = _printf("%u + %u = %u\n", INT_MAX, INT_MAX, res);
 	printf("%d\n", len1);
-	len2 = printf("%d\n", -1024);
+	len2 = printf("%u + %u = %u\n", INT_MAX, INT_MAX, res);
 	printf("%d\n", len2);
 	/*len1 = _printf("%i\n", 0); 
 	printf("%d\n", len1);
