@@ -45,6 +45,7 @@ int String(va_list list)
 	}
 	return (0);
 }
+
 /**
  * _pchar - prints a character
  * @list: va_list
@@ -78,6 +79,59 @@ int print_oct(va_list list)
 	return (a);
 }
 
+/**
+ * hexalower -  prints hexadecimal in lowercase
+ * @list: va_list
+ * Return: number length
+ */
+int hexalower(va_list list)
+{
+	int a, b, remainder, arr[100];
+	unsigned int hexa;	
+
+	hexa = va_arg(list, unsigned int);
+	if (hexa == 0)
+		return (_putchar('0'));
+	for (a = 0; hexa != 0; a++)
+	{
+		remainder =  hexa % 16;
+		if (remainder < 10)
+			arr[a] = remainder + '0';
+		else
+			arr[a] = remainder + 'W';
+		hexa /= 16;
+	}
+	for (b = a -1; b >= 0; b--)
+		_putchar(arr[b]);
+	return (a);
+}
+
+/**
+ * hexaUpper - prints hexadecimal in Uppercase
+ * @list: va_list;
+ * Return: number length
+ */
+int hexaUpper(va_list list)
+{
+	int a, b, remainder, arr[100];
+	unsigned int hexa;
+
+	hexa = va_arg(list, unsigned int);
+	if (hexa == 0)
+		return (_putchar('0'));
+	for (a = 0; hexa != 0; a++)
+	{
+		remainder = hexa % 16;
+		if (remainder < 10)
+			arr[a] = remainder + '0';
+		else
+			arr[a] = remainder + '7';
+		hexa /= 16;
+	}
+	for (b =  a - 1; b >= 0; b--)
+		_putchar(arr[b]);
+	return (a);
+}
 /**
  * print_digit - prints digits
  * @list: va_list
@@ -134,7 +188,7 @@ int _unsigned(va_list list)
 /**
  * print_rev - prints a string in reverse
  * @list: va_list
- * Return: Always 0
+ * Return: length
  */
 int print_rev(va_list list)
 {

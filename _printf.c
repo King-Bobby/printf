@@ -72,6 +72,16 @@ int _printf(const char *format, ...)
 				index++;
 				n_displayed += _unsigned(list);
 			}
+			if (format[index + 1] == 'x')
+			{
+				index++;
+				n_displayed += hexalower(list);
+			}
+			if (format[index + 1] == 'X')
+			{
+				index++;
+				n_displayed += hexaUpper(list);
+			}
 		}
 	}
 	va_end(list);
