@@ -107,6 +107,43 @@ int hexalower(va_list list)
 }
 
 /**
+ * pointer - prints pointer address in hexa
+ * @list: va_list
+ * Return: length
+ */
+int pointer(va_list list)
+{
+	int i, j, rmda, arr[100];
+	char *n = "(nil)";
+	long int cast;
+
+	void *ptr = va_arg(list, void*);
+	if (ptr == NULL)
+	{
+		for (i = 0; n[i] != '\0'; i++)
+			_putchar(n[i]);
+		return (i);
+	}
+	cast = (unsigned long int)ptr;
+	_putchar('0');
+	_putchar('x');
+	if (cast == 0)
+		return (_putchar('0'));
+	for (i = 0; cast != 0; i++)
+	{
+		rmda = cast % 16;
+		if (rmda < 10)
+			arr[i] = rmda + '0';
+		else
+			arr[i] = rmda + 'W';
+		cast /= 16;
+	}
+	for (j = i - 1; j >= 0; j--)
+		_putchar(arr[j]);
+	return (i + 2);
+}
+
+/**
  * hexaUpper - prints hexadecimal in Uppercase
  * @list: va_list;
  * Return: number length

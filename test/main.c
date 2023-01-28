@@ -5,22 +5,18 @@
 int main(void)
 {
 	unsigned int len1, len2;
-	long res = INT_MAX;
 
-	res *= 2;
-	len1 = _printf("There is %X bytes in %X KB\n", 1024, 1);
+	len1 = _printf("%pppp\n", (void *)0x7fff5100b6f8);
 	printf("%d\n", len1);
-	len2 = printf("There is %X bytes in %X KB\n", 1024, 1);
+	len2 = printf("%pppp\n", (void *)0x7fff5100b6f8);
 	printf("%d\n", len2);
-	len1 = _printf("%X + %X = %X\n", INT_MAX, INT_MAX, res);
+	len1 = _printf("%p", NULL);
 	printf("%d\n", len1);
-	len2 = printf("%X + %X = %X\n", INT_MAX, INT_MAX, res);
+	len2 = printf("%p", NULL);
 	printf("%d\n", len2);
-	/*len1 = _printf("iddi%diddiiddi\n", 1024);
-	printf("%d\n", len1);
-	len2 = printf("iddi%diddiiddi\n", 1024);
-	printf("%d\n", len2);
-*/
+	/*_printf(NULL);*/
+	/*printf("%d\n", len1);*/
+	/*printf("%d\n", len2);*/
 
 	return (0);
 }

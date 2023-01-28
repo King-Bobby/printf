@@ -82,6 +82,11 @@ int _printf(const char *format, ...)
 				index++;
 				n_displayed += hexaUpper(list);
 			}
+			if (format[index + 1] == 'p')
+			{
+				index++;
+				n_displayed += pointer(list);
+			}
 		}
 	}
 	va_end(list);

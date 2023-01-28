@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include <limits.h>
 
 int _putchar(char c);
 int _printf(const char *format, ...);
@@ -19,5 +20,6 @@ int rot13(va_list list);
 int Dtobinary(va_list list);
 int hexalower(va_list list);
 int hexaUpper(va_list list);
+int pointer(va_list list);
 
 #endif
