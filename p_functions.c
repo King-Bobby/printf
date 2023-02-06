@@ -200,6 +200,47 @@ int print_digit(va_list list)
 }
 
 /**
+ * plus_sign - puts + in front of positive numbers
+ * @list: va_list
+ * Return: count
+ */
+int plus_sign(va_list list)
+{
+	int a, b, arr[100], count = 0;
+	signed int dec;
+
+	dec = va_arg(list, signed int);
+	if (dec == 0)
+	{
+		_putchar('+');
+		_putchar('0');
+		count = count + 2;
+		return (count);
+	}
+	if (dec < 0)
+	{
+		dec = dec * -1;
+		_putchar('-');
+		count = count + 1;
+	}
+	if (dec > 0)
+	{
+		dec = dec * 1;
+		_putchar('+');
+		count = count + 1;
+	}
+	for (a = 0; dec != '\0'; a++)
+	{
+		arr[a] = dec % 10;
+		dec /= 10;
+		count++;
+	}
+	for (b = a - 1; b >= 0; b--)
+		_putchar(arr[b] + '0');
+	return (count);
+}
+
+/**
  * _unsigned - prints values in unsigned int
  * @list: va_list
  * Return: length

@@ -42,10 +42,21 @@ int _printf(const char *format, ...)
 				_putchar('%');
 				n_displayed++;
 			}
-			if ((format[index + 1] == 'd') || format[index + 1] == 'i')
+			if ((format[index + 1] == 'd') || (format[index + 1] == 'i'))
 			{
 				index++;
 				n_displayed += print_digit(list);
+			}
+			if ((format[index + 1] == ' ') && ((format[index + 2] == 'd') || (format[index + 2] == 'i')))
+			{
+				index = index + 2;
+				_putchar(' ');
+				n_displayed += print_digit(list);
+			}
+			if ((format[index + 1] == '+') && ((format[index + 2] == 'd') || (format[index + 2] == 'i')))
+			{
+				index = index + 2;
+				n_displayed += plus_sign(list);
 			}
 			if (format[index + 1] == 'b')
 			{
@@ -60,6 +71,13 @@ int _printf(const char *format, ...)
 			if (format[index + 1] == 'o')
 			{
 				index++;
+				n_displayed += print_oct(list);
+			}
+			if ((format[index + 1] == '#') && (format[index + 2] == 'o'))
+			{
+				index = index + 2;
+				_putchar('0');
+				n_displayed = 1;
 				n_displayed += print_oct(list);
 			}
 			if (format[index + 1] == 'R')
@@ -77,9 +95,25 @@ int _printf(const char *format, ...)
 				index++;
 				n_displayed += hexalower(list);
 			}
+			if ((format[index + 1] == '#') && (format[index + 2] == 'x'))
+			{
+				index = index + 2;
+				_putchar('0');
+				_putchar('x');
+				n_displayed = 2;
+				n_displayed += hexalower(list);
+			}
 			if (format[index + 1] == 'X')
 			{
 				index++;
+				n_displayed += hexaUpper(list);
+			}
+			if ((format[index + 1] == '#') && (format[index + 2] == 'X'))
+			{
+				index = index + 2;
+				_putchar('0');
+				_putchar('X');
+				n_displayed = 2;
 				n_displayed += hexaUpper(list);
 			}
 			if (format[index + 1] == 'p')

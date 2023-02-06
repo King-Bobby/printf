@@ -21,5 +21,6 @@ int Dtobinary(va_list list);
 int hexalower(va_list list);
 int hexaUpper(va_list list);
 int pointer(va_list list);
+int plus_sign(va_list list);
 
 #endif
